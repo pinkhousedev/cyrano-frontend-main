@@ -17,7 +17,7 @@ interface SmartClientProps {
 }
 
 const SmartClient: React.FC<SmartClientProps> = ({ illustrationImage, reversed = false }) => {
-  const [article, setArticle] = useState<any>({
+  const [article, setArticle] = useState<Object>({
     title: '',
     quote1: '',
     quote2: '',

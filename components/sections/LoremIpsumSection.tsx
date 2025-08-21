@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const LoremIpsumSection: React.FC = () => {
-  const [article, setArticle] = useState<any>({
+  const [article, setArticle] = useState<Object>({
     title: '',
     description: '',
     image: ''  

@@ -16,7 +16,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ heroImage }) => {
-  const [article, setArticle] = useState<any>({
+  const [article, setArticle] = useState<Object>({
     title: '',
     description: '',
     image: ''  

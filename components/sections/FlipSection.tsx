@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Buttons';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 interface FlipSectionProps {
   sectionImage: {
@@ -16,25 +16,26 @@ interface FlipSectionProps {
 }
 
 const FlipSection: React.FC<FlipSectionProps> = ({ sectionImage, reversed = false }) => {
-  const [article, setArticle] = useState<any>({
-    title: '',
-    description: '',
-    description2: '',
-    image: ''  
-  });
-  useEffect(() => {
-    const fetchArticle = async () => {
-      const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=hompage-flipsection&populate=*');
-      const data = await response.json();
-      const article = data.data[0];
-      setArticle({
-        title: article.title,
-        description: article.description,
-        description2: article.description2
-      });
-    };
-    fetchArticle();
-  }, []);
+  // const [article, setArticle] = useState<any>({
+  //   title: '',
+  //   description: '',
+  //   description2: '',
+  //   image: ''  
+  // });
+  // useEffect(() => {
+  //   const fetchArticle = async () => {
+  //     const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=hompage-flipsection&populate=*');
+  //     const data = await response.json();
+  //     const article = data.data[0];
+  //     setArticle({
+  //       title: article.title,
+  //       description: article.description,
+  //       description2: article.description2
+  //     });
+  //   };
+    
+  //   fetchArticle();
+  // }, []);
   return (
     <section className="w-full bg-[#29252D] py-10 lg:py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">

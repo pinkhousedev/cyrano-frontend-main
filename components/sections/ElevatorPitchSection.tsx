@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const ElevatorPitchSection: React.FC = () => {
-  const [article, setArticle] = useState<any>({
+  const [article, setArticle] = useState<Object>({
     title: '',
     description: '', 
   });
