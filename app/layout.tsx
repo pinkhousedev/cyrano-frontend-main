@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Calistoga } from "next/font/google";
+// import { Calistoga } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import TawkTo from "@/services/TawkTo";
@@ -12,12 +12,12 @@ import { preloadGlobalData } from "@/controllers/globalController";
 export const dynamic = "force-dynamic";
 
 
-const calistoga = Calistoga({
-  variable: "--font-calistoga",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
+// const calistoga = Calistoga({
+//   variable: "--font-calistoga",
+//   subsets: ["latin"],
+//   weight: "400",
+//   display: "swap",
+// });
 
 const gilroy = localFont({
   src: [
@@ -66,7 +66,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body
         suppressHydrationWarning
-        className={`${calistoga.variable} ${gilroy.className} antialiased bg-[#29252D] text-white transition-colors duration-300 overflow-y-auto
+        className={`${gilroy.className} antialiased bg-[#29252D] text-white transition-colors duration-300 overflow-y-auto
   [&::-webkit-scrollbar]:w-1.5
   [&::-webkit-scrollbar-thumb]:rounded-[50px]
   [&::-webkit-scrollbar-track]:bg-gray-100

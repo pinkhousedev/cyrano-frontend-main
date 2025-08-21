@@ -8,15 +8,20 @@ import { useEffect, useState } from 'react';
 
 interface HeroSectionProps {
   heroImage: {
-    src: string;
     alt: string;
     width: number;
     height: number;
   };
 }
 
+interface Article {
+  title: string;
+  description: string;
+  image: string;
+}
+
 const HeroSection: React.FC<HeroSectionProps> = ({ heroImage }) => {
-  const [article, setArticle] = useState<Object>({
+  const [article, setArticle] = useState<Article>({
     title: '',
     description: '',
     image: ''  
@@ -25,12 +30,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroImage }) => {
     const fetchArticle = async () => {
       const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=homepage-hero&populate=*');
       const data = await response.json();
-      const article = data.data[0];
-      console.log("article===============================>",article);
+      const fetchedArticle = data.data[0];
+      console.log("article===============================>",fetchedArticle);
       setArticle({
-        title: article.title,
-        description: article.description,
-        image: article.cover.url
+        title: fetchedArticle.title,
+        description: fetchedArticle.description,
+        image: fetchedArticle.cover.url
       });
     };
     fetchArticle();

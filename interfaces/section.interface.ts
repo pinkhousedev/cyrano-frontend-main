@@ -162,6 +162,16 @@ interface CareerHeroSection {
   vision?: string;
 }
 
+interface AndroidHeroSection {
+  __component: "sections.android-hero";
+  id: number;
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+  buttonUrl?: string;
+  backgroundGradient?: 'purple' | 'blue' | 'green';
+}
+
 export interface CareerVisionSection {
   __component: "sections.career-vision";
   id: number;
@@ -216,4 +226,5 @@ export type Section =
   | CareerVisionSection
   | CareerHighlightsSection
   | CareerJobListingsSection
-  | FeatureSpotlight;
+  | FeatureSpotlight
+  | AndroidHeroSection;

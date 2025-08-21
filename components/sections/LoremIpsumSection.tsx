@@ -5,8 +5,14 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+interface Article {
+  title: string;
+  description: string;
+  image: string;
+}
+
 const LoremIpsumSection: React.FC = () => {
-  const [article, setArticle] = useState<Object>({
+  const [article, setArticle] = useState<Article>({
     title: '',
     description: '',
     image: ''  
@@ -15,12 +21,12 @@ const LoremIpsumSection: React.FC = () => {
     const fetchArticle = async () => {
       const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=loremIpsum-section&populate=*');
       const data = await response.json();
-      const article = data.data[0];
-      console.log(article);
+      const fetchedArticle = data.data[0];
+      console.log(fetchedArticle);
       setArticle({
-        title: article.title,
-        description: article.description,
-        image: article.cover.url
+        title: fetchedArticle.title,
+        description: fetchedArticle.description,
+        image: fetchedArticle.cover.url
       });
     };
     fetchArticle();

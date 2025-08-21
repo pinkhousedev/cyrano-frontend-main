@@ -1,10 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Button } from '@/components/ui/Buttons';
-import { useEffect, useState } from 'react';
-
 
 interface ApplyFormSectionProps {
   illustrationImage: {
@@ -17,25 +15,6 @@ interface ApplyFormSectionProps {
 }
 
 const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, onApplyToMatch }) => {
-  const [article, setArticle] = useState<any>({
-    title: '',
-    description: '',
-    image: ''  
-  });
-  useEffect(() => {
-    const fetchArticle = async () => {
-      const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=homepage-hero&populate=*');
-      const data = await response.json();
-      const article = data.data[0];
-      console.log(article);
-      setArticle({
-        title: article.title,
-        description: article.description,
-        image: article.cover.url
-      });
-    };
-    fetchArticle();
-  }, []);
   return (
     <section className="w-full bg-[#29252D] py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

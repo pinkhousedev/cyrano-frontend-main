@@ -16,8 +16,19 @@ interface SmartClientProps {
   reversed?: boolean;
 }
 
+interface Article {
+  title: string;
+  quote1: string;
+  quote2: string;
+  quote3: string;
+  quote4: string;
+  quote5: string;
+  description: string;
+  image: string;
+}
+
 const SmartClient: React.FC<SmartClientProps> = ({ illustrationImage, reversed = false }) => {
-  const [article, setArticle] = useState<Object>({
+  const [article, setArticle] = useState<Article>({
     title: '',
     quote1: '',
     quote2: '',
@@ -31,18 +42,18 @@ const SmartClient: React.FC<SmartClientProps> = ({ illustrationImage, reversed =
     const fetchArticle = async () => {
       const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=hompage-smartclient&populate=*');
       const data = await response.json();
-      const article = data.data[0];
+      const fetchedArticle = data.data[0];
       setArticle({
-        title: article.title,
-        quote1:article.blocks[0].body,
-        quote2:article.blocks[1].body,
-        quote3:article.blocks[2].body,
-        quote4:article.blocks[3].body,
-        quote5:article.blocks[4].body,
-        description: article.description,
-        image: article.cover.url
+        title: fetchedArticle.title,
+        quote1: fetchedArticle.blocks[0].body,
+        quote2: fetchedArticle.blocks[1].body,
+        quote3: fetchedArticle.blocks[2].body,
+        quote4: fetchedArticle.blocks[3].body,
+        quote5: fetchedArticle.blocks[4].body,
+        description: fetchedArticle.description,
+        image: fetchedArticle.cover.url
       });
-      console.log("123123",article.blocks[0].body);
+      console.log("123123", fetchedArticle.blocks[0].body);
     };
     fetchArticle();
   }, []);

@@ -3,8 +3,13 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
+interface Article {
+  title: string;
+  description: string;
+}
+
 const ElevatorPitchSection: React.FC = () => {
-  const [article, setArticle] = useState<Object>({
+  const [article, setArticle] = useState<Article>({
     title: '',
     description: '', 
   });
@@ -12,11 +17,10 @@ const ElevatorPitchSection: React.FC = () => {
     const fetchArticle = async () => {
       const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=ELEVATOR-PITCH&populate=*');
       const data = await response.json();
-      const article = data.data[0];
-      console.log("asd",article.title);
+      const fetchedArticle = data.data[0];
       setArticle({
-        title: article.title,
-        description: article.description
+        title: fetchedArticle.title,
+        description: fetchedArticle.description
       });
     };
     fetchArticle();
