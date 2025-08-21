@@ -24,7 +24,7 @@ const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, 
   });
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch('http://localhost:1337/api/articles?filters[slug][$eq]=homepage-hero&populate=*');
+      const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=homepage-hero&populate=*');
       const data = await response.json();
       const article = data.data[0];
       console.log(article);
@@ -50,7 +50,7 @@ const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, 
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-xl">
               <Image
-                src={"http://localhost:1337/uploads/cute_88d811625d.png"}
+                src={"https://cyrano-pamphlet-backend.onrender.com/uploads/cute_88d811625d.png"}
                 alt={illustrationImage.alt}
                 width={illustrationImage.width}
                 height={illustrationImage.height}

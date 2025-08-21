@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
         hostname: 'figma-backend-ehsr.onrender.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'cyrano-pamphlet-backend.onrender.com',
+        pathname: '/**',
+      },
       // Allow local Strapi media in development
       {
         protocol: 'http',

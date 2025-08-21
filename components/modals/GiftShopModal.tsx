@@ -289,7 +289,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
               {/* Map and Location */}
               <div className="mb-6 display flex-row gap-4 flex">
                 <div className="text-center">
-                  <Image src="http://localhost:1337/uploads/Rectangle_3199_7af7e3fcec.png" alt="" width={300} height={300} />
+                  <Image src="https://cyrano-pamphlet-backend.onrender.com/uploads/Rectangle_3199_7af7e3fcec.png" alt="" width={300} height={300} />
                   <label className='text-white text-sm text-center flex justify-center alitem-center gap-3' style={{
                     fontSize: "10px", background: "#413F47",
                     padding: "5px 10px",

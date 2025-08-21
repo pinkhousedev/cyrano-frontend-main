@@ -29,7 +29,7 @@ const SmartClient: React.FC<SmartClientProps> = ({ illustrationImage, reversed =
   });
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch('http://localhost:1337/api/articles?filters[slug][$eq]=hompage-smartclient&populate=*');
+      const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=hompage-smartclient&populate=*');
       const data = await response.json();
       const article = data.data[0];
       setArticle({

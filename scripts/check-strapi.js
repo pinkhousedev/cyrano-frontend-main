@@ -1,5 +1,5 @@
 // Simple connectivity checker for Strapi API
-const url = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337';
+const url = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'https://cyrano-pamphlet-backend.onrender.com/';
 
 async function main() {
   try {

@@ -20,14 +20,14 @@ const smartClientImage1 = {
   };
 
 const smartClientImage = {
-    src: "http://localhost:1337/uploads/image_407_4408fc43ae.png",
+    src: "https://cyrano-pamphlet-backend.onrender.com/uploads/image_407_4408fc43ae.png",
     alt: "Two stylized cats with thought bubble and heart, surrounded by swirling white lines",
     width: 500,
     height: 500
   };
 
 const flipSectionImage1 = {
-  src: "http://localhost:1337/uploads/0_0_10_4498e85dae.png",
+  src: "https://cyrano-pamphlet-backend.onrender.com/uploads/0_0_10_4498e85dae.png",
   alt: "Three cats in a magical forest setting with glowing elements and dreamy atmosphere",
   width: 500,
   height: 500
@@ -35,7 +35,7 @@ const flipSectionImage1 = {
 
   const catIllustrationImages = {
     largeImage: {
-      src: "http://localhost:1337/uploads/0_0_9_4b7230cd1b.png",
+      src: "https://cyrano-pamphlet-backend.onrender.com/uploads/0_0_9_4b7230cd1b.png",
       alt: "Large illustration of three stylized cats in a magical glowing environment with purple, pink, and blue colors",
       width: 1200,
       height: 600
