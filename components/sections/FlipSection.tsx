@@ -24,7 +24,7 @@ const FlipSection: React.FC<FlipSectionProps> = ({ sectionImage, reversed = fals
   // });
   // useEffect(() => {
   //   const fetchArticle = async () => {
-  //     const response = await fetch('https://cyrano-pamphlet-backend.onrender.com/api/articles?filters[slug][$eq]=hompage-flipsection&populate=*');
+  //     const response = await fetch('https://cyrano-pamphlet-backend-cyiq.onrender.com/api/articles?filters[slug][$eq]=hompage-flipsection&populate=*');
   //     const data = await response.json();
   //     const article = data.data[0];
   //     setArticle({

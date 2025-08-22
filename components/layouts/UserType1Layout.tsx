@@ -12,19 +12,19 @@ import GiftShopModal from '@/components/modals/GiftShopModal';
 
   const catIllustrationImages = {
     smallImage: {
-      src: "https://cyrano-pamphlet-backend.onrender.com/uploads/image_430_3d0186fe03.png",
+      src: "https://cyrano-pamphlet-backend-cyiq.onrender.com/uploads/image_430_3d0186fe03.png",
       alt: "Three stylized cats with glowing pink elements and magical atmosphere",
       width: 400,
       height: 300
     },
      smallImage1: {
-      src: "https://cyrano-pamphlet-backend.onrender.com/uploads/image_279_70ac8d7b67.png",
+      src: "https://cyrano-pamphlet-backend-cyiq.onrender.com/uploads/image_279_70ac8d7b67.png",
       alt: "Three stylized cats with glowing pink elements and magical atmosphere",
       width: 400,
       height: 300
     },
     largeImage: {
-      src: "https://cyrano-pamphlet-backend.onrender.com/uploads/0_3_17_71851fa55c.png",
+      src: "https://cyrano-pamphlet-backend-cyiq.onrender.com/uploads/0_3_17_71851fa55c.png",
       alt: "Large illustration of three stylized cats in a magical glowing environment with purple, pink, and blue colors",
       width: 1200,
       height: 600
@@ -33,7 +33,7 @@ import GiftShopModal from '@/components/modals/GiftShopModal';
 
   
   const testimonialImage = {
-    src: "https://cyrano-pamphlet-backend.onrender.com/uploads/unsplash_W_No_Ln_Jo7t_S8_1129bba579.png",
+    src: "https://cyrano-pamphlet-backend-cyiq.onrender.com/uploads/unsplash_W_No_Ln_Jo7t_S8_1129bba579.png",
     alt: "Profile image for testimonials",
     width: 128,
     height: 128
@@ -49,13 +49,13 @@ import GiftShopModal from '@/components/modals/GiftShopModal';
   
 const UserType1Layout = () => {
   const applyFormImage = { src: '/assets/cute.png', alt: 'Apply Form Illustration', width: 400, height: 400 };
-  const smartClientImage = { src: 'https://cyrano-pamphlet-backend.onrender.com/uploads/image_352_d0074b9b0b.png', alt: 'Smart Client Illustration', width: 500, height: 400 };
+  const smartClientImage = { src: 'https://cyrano-pamphlet-backend-cyiq.onrender.com/uploads/image_352_d0074b9b0b.png', alt: 'Smart Client Illustration', width: 500, height: 400 };
   
   const dashboardImages = {
-    backgroundImage: { src: 'https://cyrano-pamphlet-backend.onrender.com/uploads/Untitled_3_1_953cb845ec.png', alt: 'Dashboard Background'},
-    phoneImage: { src: 'https://cyrano-pamphlet-backend.onrender.com/uploads/Rectangle_44573f115b.png', alt: 'Phone Mockup'},
+    backgroundImage: { src: 'https://cyrano-pamphlet-backend-cyiq.onrender.com/uploads/Untitled_3_1_953cb845ec.png', alt: 'Dashboard Background'},
+    phoneImage: { src: 'https://cyrano-pamphlet-backend-cyiq.onrender.com/uploads/Rectangle_44573f115b.png', alt: 'Phone Mockup'},
   };
-  const catFeatureImage = { src: 'https://cyrano-pamphlet-backend.onrender.com/uploads/image_292_2f1b34f0c9.png', alt: 'Cat illustration with glowing elements and magical atmosphere', width: 800, height: 600 };
+  const catFeatureImage = { src: 'https://cyrano-pamphlet-backend-cyiq.onrender.com/uploads/image_292_2f1b34f0c9.png', alt: 'Cat illustration with glowing elements and magical atmosphere', width: 800, height: 600 };
 
   const [isGiftShopModalOpen, setIsGiftShopModalOpen] = useState(false);
 
