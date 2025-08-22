@@ -36,7 +36,7 @@ const SmartClient: React.FC<SmartClientProps> = ({ illustrationImage, reversed =
     quote4: '',
     quote5: '',
     description: '',
-    image: ''  
+    image: ''
   });
   useEffect(() => {
     const fetchArticle = async () => {
@@ -98,30 +98,35 @@ const SmartClient: React.FC<SmartClientProps> = ({ illustrationImage, reversed =
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
-              className="mb-6 sm:mb-8 lg:mb-4 space-y-3"
+              className="mb-6 sm:mb-8 lg:mb-4 space-y-3 relative"
             >
-              <div className="flex items-start gap-2">
+              <div className="absolute inset-0 flex items-center justify-start lg:justify-start pointer-events-none">
+                <span style={{ fontSize: "140px" }} className="text-6xl sm:text-8xl lg:text-10xl xl:text-12xl 4xl:text-20xl font-black text-white/3 select-none break-words">PAPER</span>
+              </div>
+
+              <div className="flex items-start gap-2 relative z-10">
+
                 <DollarSign className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" />
                 <p className="text-sm sm:text-base text-gray-100 break-words">
-                {article.quote3}
+                  {article.quote3}
                 </p>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2 relative z-10">
                 <span className="text-gray-100 text-lg flex-shrink-0">♀</span>
                 <p className="text-sm sm:text-base text-gray-100 break-words">
-                {article.quote4}
+                  {article.quote4}
                 </p>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2 relative z-10">
                 <span className="text-gray-100 text-lg flex-shrink-0">⚥</span>
                 <p className="text-sm sm:text-base text-gray-100 break-words">
-                {article.quote5}
+                  {article.quote5}
                 </p>
               </div>
-              <div className="flex items-start gap-2">
+              <div className="flex items-start gap-2 relative z-10">
                 <p className="text-sm sm:text-base text-gray-100 break-words">
                   <span className="inline-block mr-1">∞</span>
-                  {article.description}
+                  Lorem ipsum dolor sit amet, consectetur adi
                 </p>
               </div>
             </motion.div>

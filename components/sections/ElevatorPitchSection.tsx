@@ -45,6 +45,7 @@ const ElevatorPitchSection: React.FC = () => {
               viewport={{ once: true }}
               className="text-center lg:text-left"
             >
+
               <p className="text-sm sm:text-base text-gray-400 uppercase mb-4 sm:mb-6 break-words">
                 {article.title}
               </p>

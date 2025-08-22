@@ -35,7 +35,7 @@ const LoremIpsumSection: React.FC = () => {
     <>
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
        
-        <div className="relative">8
+        <div className="relative">
         
           <motion.div
             initial={{ opacity: 0, y: 30 }}

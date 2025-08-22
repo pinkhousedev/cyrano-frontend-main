@@ -62,9 +62,7 @@ const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, 
               </p>
             </motion.div>
 
-          {/* <div className="absolute inset-0 flex items-center justify-start lg:justify-start">
-              <span style={{fontSize:"160px"}} className="text-6xl sm:text-8xl lg:text-10xl xl:text-12xl 4xl:text-20xl font-black text-white/3 select-none break-words">YOLO</span>
-            </div> */}
+      
             {/* Phone Input */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -74,6 +72,7 @@ const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, 
               style={{ width: '100%' }}
               className="mb-8 fl"
             >
+                
               <input
                 type="tel"
                 placeholder="Enter your mobile phone number"
