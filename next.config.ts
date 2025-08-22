@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cyrano-pamphlet-backend-2b44.onrender.com',
+        hostname: 'cyrano-pamphlet-backend-s8as.onrender.com',
         pathname: '/**',
       },
       {
@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cyrano-pamphlet-backend-cyiq.onrender.com',
+        hostname: 'cyrano-pamphlet-backend-s8as.onrender.com',
         pathname: '/**',
       },
       // Allow local Strapi media in development
