@@ -28,7 +28,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroImage }) => {
   });
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch('https://cyrano-pamphlet-backend-cyiq.onrender.com/api/articles?filters[slug][$eq]=homepage-hero&populate=*');
+      const response = await fetch('https://cyrano-pamphlet-backend-2b44.onrender.com//api/articles?filters[slug][$eq]=homepage-hero&populate=*');
       const data = await response.json();
       const fetchedArticle = data.data[0];
       console.log("article===============================>",fetchedArticle);
@@ -40,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroImage }) => {
     };
     fetchArticle();
   }, []);
-  return (
+return (
     <section className="w-full bg-[#29252D] flex items-center justify-center px-3 sm:px-4 lg:px-6 pt-10 py-16 lg:py-24 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mt-[70px]">
         {/* Left Section - Illustration */}
@@ -52,7 +52,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroImage }) => {
         >
           <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl">
             <Image
-              src={"https://cyrano-pamphlet-backend-cyiq.onrender.com" + article.image}
+              src={"https://cyrano-pamphlet-backend-2b44.onrender.com/" + article.image}
               alt={heroImage.alt}
               width={heroImage.width}
               height={heroImage.height}

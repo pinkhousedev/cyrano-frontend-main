@@ -29,7 +29,7 @@ const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, 
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-xl">
               <Image
-                src={"https://cyrano-pamphlet-backend-cyiq.onrender.com/uploads/cute_88d811625d.png"}
+                src={"https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/cute_88d811625d.png"}
                 alt={illustrationImage.alt}
                 width={illustrationImage.width}
                 height={illustrationImage.height}

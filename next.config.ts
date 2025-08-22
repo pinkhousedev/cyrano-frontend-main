@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'cyrano-pamphlet-backend.onrender.com',
+        hostname: 'cyrano-pamphlet-backend-cyiq.onrender.com',
         pathname: '/**',
       },
       // Allow local Strapi media in development
