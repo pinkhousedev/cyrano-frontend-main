@@ -31,7 +31,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroImage }) => {
       const response = await fetch('https://cyrano-pamphlet-backend-s8as.onrender.com/api/articles?filters[slug][$eq]=homepage-hero&populate=*');
       const data = await response.json();
       const fetchedArticle = data.data[0];
-      console.log("article===============================>",fetchedArticle);
       setArticle({
         title: fetchedArticle.title,
         description: fetchedArticle.description,
