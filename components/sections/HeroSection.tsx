@@ -52,7 +52,7 @@ return (
         >
           <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl">
             <Image
-              src={"https://cyrano-pamphlet-backend-2b44.onrender.com/" + article.image}
+              src={"https://cyrano-pamphlet-backend-2b44.onrender.com" + article.image}
               alt={heroImage.alt}
               width={heroImage.width}
               height={heroImage.height}

@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'humble-excitement-d3938ee2da.media.strapiapp.com',
+        hostname: 'cyrano-pamphlet-backend-2b44.onrender.com',
         pathname: '/**',
       },
       {
