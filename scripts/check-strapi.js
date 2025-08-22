@@ -1,5 +1,5 @@
 // Simple connectivity checker for Strapi API
-const url = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'https://cyrano-pamphlet-backend-2b44.onrender.com//';
+const url = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'https://cyrano-pamphlet-backend-2b44.onrender.com/';
 
 async function main() {
   try {

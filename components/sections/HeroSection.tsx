@@ -28,7 +28,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroImage }) => {
   });
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch('https://cyrano-pamphlet-backend-2b44.onrender.com//api/articles?filters[slug][$eq]=homepage-hero&populate=*');
+      const response = await fetch('https://cyrano-pamphlet-backend-2b44.onrender.com/api/articles?filters[slug][$eq]=homepage-hero&populate=*');
       const data = await response.json();
       const fetchedArticle = data.data[0];
       console.log("article===============================>",fetchedArticle);

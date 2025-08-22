@@ -21,7 +21,7 @@ const heroImage = {
 };
 
 const smartClientImage = {
-  src: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/0_0_24_1408f7c4a3.png",
+  src: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/0_0_24_1408f7c4a3.png",
   alt: "Two stylized cats with thought bubble and heart, surrounded by swirling white lines",
   width: 500,
   height: 500
@@ -30,28 +30,28 @@ const smartClientImage = {
 
 
 const smartClientImage1 = {
-  src: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/image_13177a95d8.png",
+  src: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/image_13177a95d8.png",
   alt: "Two stylized cats with thought bubble and heart, surrounded by swirling white lines",
   width: 500,
   height: 1000
 };
 
 const testimonialImage = {
-  src: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/unsplash_W_No_Ln_Jo7t_S8_0302f0d8b2.png",
+  src: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/unsplash_W_No_Ln_Jo7t_S8_0302f0d8b2.png",
   alt: "Profile image for testimonials",
   width: 128,
   height: 128
 };
 
 const flipSectionImage1 = {
-  src: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/0_0_10_c658a142f7.png",
+  src: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/0_0_10_c658a142f7.png",
   alt: "Three cats in a magical forest setting with glowing elements and dreamy atmosphere",
   width: 500,
   height: 500
 };
 
 const flipSectionImage = {
-  src: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/0_1_17_57bd95d854.png",
+  src: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/0_1_17_57bd95d854.png",
   alt: "Three cats in a magical forest setting with glowing elements and dreamy atmosphere",
   width: 500,
   height: 500
@@ -60,27 +60,27 @@ const flipSectionImage = {
 
 const features = [
   {
-    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/one_On_One_4f43622e5b.svg",
+    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/one_On_One_4f43622e5b.svg",
     title: "One-on-One",
     description: ["Live agent", "Fully Vetted"]
   },
   {
-    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/no_Strings_6f7c4d97d5.svg",
+    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/no_Strings_6f7c4d97d5.svg",
     title: "No Commitment",
     description: ["Pay Model", "Date-to-date"]
   },
   {
-    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/International_8920f8e443.svg",
+    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/International_8920f8e443.svg",
     title: "International Matching",
     description: ["Big pond", "Access geofenced prospects"]
   },
   {
-    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/Demographics_b53f4ea05f.svg",
+    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/Demographics_b53f4ea05f.svg",
     title: "Specific Demographic",
     description: ["Up to 500 Preferences", "Tailored"]
   },
   {
-    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/Component_15_3c0444dc39.svg",
+    icon: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/Component_15_3c0444dc39.svg",
     title: "And More",
     description: ["Date Coaching", "Post-date Feedback"]
   }
@@ -106,19 +106,19 @@ const testimonials = [
 
 const catIllustrationImages = {
   smallImage: {
-    src: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/image_281_4955cb348c.png",
+    src: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/image_281_4955cb348c.png",
     alt: "Three stylized cats with glowing pink elements and magical atmosphere",
     width: 400,
     height: 300
   },
   smallImage1: {
-    src: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/image_284_4de832f1d4.png",
+    src: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/image_284_4de832f1d4.png",
     alt: "Three stylized cats with glowing pink elements and magical atmosphere",
     width: 400,
     height: 300
   },
   footerImage: {
-    src: "https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/image_424_374014975b.png",
+    src: "https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/image_424_374014975b.png",
     alt: "Large illustration of three stylized cats in a magical glowing environment with purple, pink, and blue colors",
     width: 1200,
     height: 600

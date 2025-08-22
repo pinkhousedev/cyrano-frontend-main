@@ -22,7 +22,7 @@
 npm run check-strapi
 
 # Or manually check
-curl https://cyrano-pamphlet-backend-2b44.onrender.com//
+curl https://cyrano-pamphlet-backend-2b44.onrender.com/
 ```
 
 **If Strapi is not running**:
@@ -34,10 +34,10 @@ curl https://cyrano-pamphlet-backend-2b44.onrender.com//
 **Check your `.env.local` file**:
 ```bash
 # Current setting (development)
-NEXT_PUBLIC_STRAPI_API_URL=https://cyrano-pamphlet-backend-2b44.onrender.com//
+NEXT_PUBLIC_STRAPI_API_URL=https://cyrano-pamphlet-backend-2b44.onrender.com/
 
 # For production, use:
-# NEXT_PUBLIC_STRAPI_API_URL=https://cyrano-pamphlet-backend-2b44.onrender.com//
+# NEXT_PUBLIC_STRAPI_API_URL=https://cyrano-pamphlet-backend-2b44.onrender.com/
 ```
 
 **Verify environment variables are loaded**:
@@ -82,9 +82,9 @@ Look for these console messages:
 
 ### 3. Verify API Endpoints
 Test these endpoints directly:
-- `https://cyrano-pamphlet-backend-2b44.onrender.com//api/health` - Health check
-- `https://cyrano-pamphlet-backend-2b44.onrender.com//api/pages` - Pages endpoint
-- `https://cyrano-pamphlet-backend-2b44.onrender.com//api/global` - Global settings
+- `https://cyrano-pamphlet-backend-2b44.onrender.com/api/health` - Health check
+- `https://cyrano-pamphlet-backend-2b44.onrender.com/api/pages` - Pages endpoint
+- `https://cyrano-pamphlet-backend-2b44.onrender.com/api/global` - Global settings
 
 ## Performance Optimization
 

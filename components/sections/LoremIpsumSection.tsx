@@ -19,7 +19,7 @@ const LoremIpsumSection: React.FC = () => {
   });
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch('https://cyrano-pamphlet-backend-2b44.onrender.com//api/articles?filters[slug][$eq]=loremIpsum-section&populate=*');
+      const response = await fetch('https://cyrano-pamphlet-backend-2b44.onrender.com/api/articles?filters[slug][$eq]=loremIpsum-section&populate=*');
       const data = await response.json();
       const fetchedArticle = data.data[0];
       console.log(fetchedArticle);
@@ -65,7 +65,7 @@ const LoremIpsumSection: React.FC = () => {
                 className="relative z-10 mb-4 md:mb-0 md:mr-5"
               >
                 <Image 
-                  src="https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/btn2_f99d85138d.png" 
+                  src="https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/btn2_f99d85138d.png" 
                   alt="Button 2" 
                   width={390} 
                   height={130} 
@@ -87,7 +87,7 @@ const LoremIpsumSection: React.FC = () => {
               }}
             >
                 <Image 
-                  src="https://cyrano-pamphlet-backend-2b44.onrender.com//uploads/btn1_3bc847e8cc.png" 
+                  src="https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/btn1_3bc847e8cc.png" 
                   alt="Button 1" 
                   width={390} 
                   height={130} 

@@ -15,7 +15,7 @@ const ElevatorPitchSection: React.FC = () => {
   });
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch('https://cyrano-pamphlet-backend-2b44.onrender.com//api/articles?filters[slug][$eq]=ELEVATOR-PITCH&populate=*');
+      const response = await fetch('https://cyrano-pamphlet-backend-2b44.onrender.com/api/articles?filters[slug][$eq]=ELEVATOR-PITCH&populate=*');
       const data = await response.json();
       const fetchedArticle = data.data[0];
       setArticle({
