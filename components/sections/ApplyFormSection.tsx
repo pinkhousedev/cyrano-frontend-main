@@ -29,7 +29,7 @@ const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, 
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-xl">
               <Image
-                src={"https://cyrano-pamphlet-backend-2b44.onrender.com/uploads/cute_88d811625d.png"}
+                src={"https://cyrano-pamphlet-backend-s8as.onrender.com/uploads/cute_88d811625d.png"}
                 alt={illustrationImage.alt}
                 width={illustrationImage.width}
                 height={illustrationImage.height}
@@ -62,6 +62,9 @@ const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, 
               </p>
             </motion.div>
 
+          {/* <div className="absolute inset-0 flex items-center justify-start lg:justify-start">
+              <span style={{fontSize:"160px"}} className="text-6xl sm:text-8xl lg:text-10xl xl:text-12xl 4xl:text-20xl font-black text-white/3 select-none break-words">YOLO</span>
+            </div> */}
             {/* Phone Input */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -140,7 +143,10 @@ const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, 
                 Apply to Match
               </Button>
             </motion.div>
+
           </motion.div>
+
+          
         </div>
       </div>
     </section>
