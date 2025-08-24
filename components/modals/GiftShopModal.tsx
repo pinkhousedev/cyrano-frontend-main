@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronDown, ChevronRight, Info, Mail, Phone, Minus, Plus, Search } from 'lucide-react';
 import { Button } from '../ui/Buttons';
 import Image from 'next/image';
+import { getImageUrl } from '@/lib/utils';
 
 interface GiftShopModalProps {
   isOpen: boolean;
@@ -289,7 +290,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
               {/* Map and Location */}
               <div className="mb-6 display flex-row gap-4 flex">
                 <div className="text-center">
-                  <Image src="https://cyrano-pamphlet-backend-s8as.onrender.com/uploads/Rectangle_3199_7af7e3fcec.png" alt="" width={300} height={300} />
+                  <Image src={getImageUrl("/uploads/Rectangle_3199_7af7e3fcec.png")} alt="" width={300} height={300} />
                   <label className='text-white text-sm text-center flex justify-center alitem-center gap-3' style={{
                     fontSize: "10px", background: "#413F47",
                     padding: "5px 10px",

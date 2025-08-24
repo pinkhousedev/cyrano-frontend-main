@@ -22,7 +22,7 @@
 npm run check-strapi
 
 # Or manually check
-curl https://cyrano-pamphlet-backend-s8as.onrender.com/
+curl $NEXT_PUBLIC_STRAPI_API_URL
 ```
 
 **If Strapi is not running**:
@@ -34,10 +34,10 @@ curl https://cyrano-pamphlet-backend-s8as.onrender.com/
 **Check your `.env.local` file**:
 ```bash
 # Current setting (development)
-NEXT_PUBLIC_STRAPI_API_URL=https://cyrano-pamphlet-backend-s8as.onrender.com/
+NEXT_PUBLIC_STRAPI_API_URL=https://cyrano-pamphlet-backend-s8as.onrender.com
 
 # For production, use:
-# NEXT_PUBLIC_STRAPI_API_URL=https://cyrano-pamphlet-backend-s8as.onrender.com/
+# NEXT_PUBLIC_STRAPI_API_URL=https://cyrano-pamphlet-backend-s8as.onrender.com
 ```
 
 **Verify environment variables are loaded**:
@@ -48,9 +48,9 @@ NEXT_PUBLIC_STRAPI_API_URL=https://cyrano-pamphlet-backend-s8as.onrender.com/
 **Symptoms**: Timeout errors, connection refused
 
 **Solutions**:
-- Check if your firewall is blocking cyrano-pamphlet-backend.onrender.com/ connections
+- Check if your firewall is blocking the backend API connections
 - Verify the port 1337 is not used by another service
-- Try using `127.0.0.1:1337` instead of `cyrano-pamphlet-backend.onrender.com/`
+- Try using `127.0.0.1:1337` instead of the remote backend URL
 
 ### 4. Caching Issues
 **Symptoms**: Old data persists, changes not reflected
@@ -82,9 +82,9 @@ Look for these console messages:
 
 ### 3. Verify API Endpoints
 Test these endpoints directly:
-- `https://cyrano-pamphlet-backend-s8as.onrender.com/api/health` - Health check
-- `https://cyrano-pamphlet-backend-s8as.onrender.com/api/pages` - Pages endpoint
-- `https://cyrano-pamphlet-backend-s8as.onrender.com/api/global` - Global settings
+- `$NEXT_PUBLIC_STRAPI_API_URL/api/health` - Health check
+- `$NEXT_PUBLIC_STRAPI_API_URL/api/pages` - Pages endpoint
+- `$NEXT_PUBLIC_STRAPI_API_URL/api/global` - Global settings
 
 ## Performance Optimization
 

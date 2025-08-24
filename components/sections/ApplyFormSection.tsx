@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Buttons';
+import { getImageUrl } from '@/lib/utils';
 
 interface ApplyFormSectionProps {
   illustrationImage: {
@@ -29,7 +30,7 @@ const ApplyFormSection: React.FC<ApplyFormSectionProps> = ({ illustrationImage, 
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-xl">
               <Image
-                src={"https://cyrano-pamphlet-backend-s8as.onrender.com/uploads/cute_88d811625d.png"}
+                src={getImageUrl("/uploads/cute_88d811625d.png")}
                 alt={illustrationImage.alt}
                 width={illustrationImage.width}
                 height={illustrationImage.height}

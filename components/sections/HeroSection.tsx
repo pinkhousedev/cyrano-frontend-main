@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Buttons';
 import { useEffect, useState } from 'react';
+import { getApiUrl, getImageUrl } from '@/lib/utils';
 
 interface HeroSectionProps {
   heroImage: {
@@ -28,7 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ heroImage }) => {
   });
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch('https://cyrano-pamphlet-backend-s8as.onrender.com/api/articles?filters[slug][$eq]=homepage-hero&populate=*');
+      const response = await fetch(getApiUrl('/articles?filters[slug][$eq]=homepage-hero&populate=*'));
       const data = await response.json();
       const fetchedArticle = data.data[0];
       setArticle({
@@ -51,7 +52,7 @@ return (
         >
           <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl">
             <Image
-              src={"https://cyrano-pamphlet-backend-s8as.onrender.com" + article.image}
+              src={getImageUrl(article.image)}
               alt={heroImage.alt}
               width={heroImage.width}
               height={heroImage.height}
