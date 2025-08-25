@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { getImageUrl } from '@/lib/utils';
 
 interface Article {
   title: string;
@@ -15,7 +16,7 @@ const ElevatorPitchSection: React.FC = () => {
   });
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch('https://cyrano-pamphlet-backend-s8as.onrender.com/api/articles?filters[slug][$eq]=ELEVATOR-PITCH&populate=*');
+      const response = await fetch(getApiUrl('/articles?filters[slug][$eq]=ELEVATOR-PITCH&populate=*'));
       const data = await response.json();
       const fetchedArticle = data.data[0];
       setArticle({
