@@ -46,10 +46,10 @@ const ElevatorPitchSection: React.FC = () => {
               className="text-center lg:text-left"
             >
 
-              <p className="text-sm sm:text-base text-gray-400 uppercase mb-4 sm:mb-6 break-words">
+              <p className="text-[#FFFFFF] font-gilroy text-[14px] font-medium leading-normal mb-2 text-center md:text-[10px] lg:text-left">
                 {article.title}
               </p>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white leading-tight break-words">
+              <h2 className="text-[#FFFFFF] text-center font-gilroy font-medium text-[20px] leading-normal mb-2 text-center md:text-[36px]">
                 {article.description}
               </h2>
             </motion.div>
