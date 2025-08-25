@@ -58,7 +58,7 @@ const DashboardSection: React.FC<DashboardSectionProps> = ({
         />
         
         {/* Phone Image - Rectangle.png positioned based on phonePosition prop */}
-        <div className={`absolute top-[60%] ${getPhonePosition()} transform ${getPhoneTransform()} z-20 hidden lg:block`}>
+        <div className={`absolute top-[60%] ${getPhonePosition()} transform ${getPhoneTransform()} z-20 hidden lg:block right-15`}>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

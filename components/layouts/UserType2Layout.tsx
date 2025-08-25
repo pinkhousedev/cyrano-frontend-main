@@ -9,7 +9,7 @@ import { getImageUrl } from '@/lib/utils';
 
  const dashboardImages = {
     backgroundImage: { src: '/assets/image 380.png', alt: 'Dashboard Background'},
-    phoneImage: { src: '/assets/Rectangle.png', alt: 'Phone Mockup'},
+    phoneImage: { src: '/assets/LeftMobilePhone.png', alt: 'Phone Mockup'},
   };
 
   // 0_1 9.png

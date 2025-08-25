@@ -54,7 +54,7 @@ const UserType1Layout = () => {
   
   const dashboardImages = {
     backgroundImage: { src: getImageUrl('/uploads/Untitled_3_1_953cb845ec.png'), alt: 'Dashboard Background'},
-    phoneImage: { src: getImageUrl('/uploads/Rectangle_44573f115b.png'), alt: 'Phone Mockup'},
+    phoneImage: { src: '/assets/LeftMobilePhone.png', alt: 'Phone Mockup'},
   };
   const catFeatureImage = { src: getImageUrl('/uploads/image_292_2f1b34f0c9.png'), alt: 'Cat illustration with glowing elements and magical atmosphere', width: 800, height: 600 };
 
