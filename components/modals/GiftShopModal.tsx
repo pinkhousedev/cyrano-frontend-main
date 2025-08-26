@@ -197,8 +197,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                         marginLeft: '-28px',
                         background: 'linear-gradient(321deg, #DD123C 14.75%, #CC4AA6 84.81%)'
                       }}
-                      onClick={(e) => {
-                        e.stopPropagation();
+                      onClick={() => {
                         setIsCountryDropdownOpen(!isCountryDropdownOpen);
                       }}
                     >
@@ -465,7 +464,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
 
           {/* Bottom Buttons */}
           <div className="flex gap-4 mt-8 justify-center">
-            <Button type='secondary' className='rounded-[33.981px] border border-[1.019px] border-[rgba(10,9,9,0.45)] bg-[linear-gradient(180deg,rgba(62,64,69,0.5) 0%,rgba(62,64,69,0) 8.33%),radial-gradient(170.95% 118.01% at 8.39% 32.81%,rgba(67,64,70,0.5) 0%,rgba(41,37,45,0.5) 28.24%,rgba(10,10,11,0.5) 100%)] text-center text-shadow-[0_0_4.768px_#fff,0_0_23.839px_#fe3c72,0_0_23.839px_#fe3c72] text-[15.819px] font-normal font-family-[Calistoga] text-white'>
+            <Button type='secondary' className='rounded-[33.981px] border border-[1.019px] border-[rgba(10,9,9,0.45)] bg-[linear-gradient(180deg,rgba(62,64,69,0.5) 0%,rgba(62,64,69,0) 8.33%),radial-gradient(170.95% 118.01% at 8.39% 32.81%,rgba(67,64,70,0.5) 0%,rgba(41,37,45,0.5) 28.24%,rgba(10,10,11,0.5) 100%)] text-center text-shadow-[0_0_4.768px_#fff,0_0_23.839px_#fe3c72,0_0_23.839px_#fe3c72] text-[15.819px] font-normal font-family-[Calistoga] text-[ #FE638E]'>
               Cancel
             </Button>
             <Button type='primary' className='rounded-[33.98px] border border-[1.02px] border-solid border-[rgba(10,9,9,0.45)] 
