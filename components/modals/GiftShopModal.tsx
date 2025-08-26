@@ -130,7 +130,6 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
     if (isCountryDropdownOpen) {
       setIsCountryDropdownOpen(false);
       setSearchQuery('');
-      console.log(e)
     }
   };
 
@@ -213,7 +212,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                     />
                     <div className="relative">
                       {/* Pill-shaped toggle container */}
-                      <div 
+                      <div
                         className="relative w-20 h-8 rounded-full flex items-center transition-all duration-300 ease-in-out"
                         style={{
                           background: 'linear-gradient(180deg, #FE3C72 0%, #E91E63 100%)',
@@ -226,7 +225,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                         }}
                       >
                         {/* Animated sliding circle */}
-                        <div 
+                        <div
                           className="absolute w-8 h-8 rounded-full bg-white transition-transform duration-300 ease-in-out"
                           style={{
                             transform: selectedContact === 'phone' ? 'translateX(0)' : 'translateX(48px)',
@@ -239,7 +238,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                         />
 
                         {/* Phone button (left side) */}
-                        <button 
+                        <button
                           className="relative z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out"
                           onClick={() => setSelectedContact('phone')}
                         >
@@ -249,7 +248,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                         </button>
 
                         {/* Email button (right side) */}
-                        <button 
+                        <button
                           className="relative z-10 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ease-in-out ml-auto"
                           onClick={() => setSelectedContact('email')}
                         >
@@ -359,7 +358,9 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                     value={locationInput}
                     placeholder="Type location and press Enter..."
                     className="w-full rounded-[41.516px] border-[2px] border-[#fd3971] bg-gradient-to-br from-[#27242C] via-[#27242C] to-[#0C0B0E] px-1 py-1 outline-none focus:ring-0 focus:border-pink-400"
-                    
+                    onChange={(e) => setLocationInput(e.target.value)}
+                    onKeyPress={handleLocationKeyPress}
+                    onBlur={() => handleLocationChange(locationInput)}
                   />
                   <Info className="w-5 h-5 text-white" />
                 </div>
@@ -394,9 +395,9 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
 
               {/* Map and Location */}
               <div className="mb-6 display flex-col gap-4 flex sm:flex-row">
-                <div className="text-center flex-1">
+                <div className="text-center h-auto flex-1">
                   {/* Google Maps Search */}
-                  <div className="w-full h-64 rounded-lg overflow-hidden border-2 border-gray-600">
+                  <div className="w-full h-64 rounded-lg overflow-hidden border-2 border-gray-600 xl:h-[135px]">
                     <iframe
                       src={`https://maps.google.com/maps?q=${encodeURIComponent(currentMapLocation)}&output=embed&z=10`}
                       width="100%"
@@ -409,9 +410,9 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                       key={currentMapLocation} // Force re-render when location changes
                     ></iframe>
                   </div>
-                  
+
                   <label className='text-white text-sm text-center flex justify-center items-center gap-3 mt-2' style={{
-                    fontSize: "10px", 
+                    fontSize: "10px",
                     background: "#413F47",
                     padding: "5px 10px",
                     justifyContent: "center",
@@ -431,7 +432,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                     className="w-full text-white px-1 py-1 rounded-[41.516px] border-[2px] border-[#fd3971] bg-gradient-to-br from-[#27242C] via-[#27242C] to-[#0C0B0E] px-1 py-1 outline-none focus:ring-0 focus:border-pink-400"
                     onChange={(e) => setLocationInput(e.target.value)}
                     onKeyPress={handleLocationKeyPress}
-                    onBlur={() => handleLocationChange(locationInput)} 
+                    onBlur={() => handleLocationChange(locationInput)}
                   />
                   <label className="block font-sm text-[4px] text-[#FE3C72] ml-4 mt-[2px]">Lorem Ipsum Altus Maximus Vaya Yor Lasim Joruai Ei Baraum </label>
                   <div className="mt-4">
@@ -464,10 +465,16 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
 
           {/* Bottom Buttons */}
           <div className="flex gap-4 mt-8 justify-center">
-            <Button type='primary' >
+            <Button type='secondary' className='rounded-[33.981px] border border-[1.019px] border-[rgba(10,9,9,0.45)] bg-[linear-gradient(180deg,rgba(62,64,69,0.5) 0%,rgba(62,64,69,0) 8.33%),radial-gradient(170.95% 118.01% at 8.39% 32.81%,rgba(67,64,70,0.5) 0%,rgba(41,37,45,0.5) 28.24%,rgba(10,10,11,0.5) 100%)] text-center text-shadow-[0_0_4.768px_#fff,0_0_23.839px_#fe3c72,0_0_23.839px_#fe3c72] text-[15.819px] font-normal font-family-[Calistoga] text-white'>
               Cancel
             </Button>
-            <Button type='secondary'>
+            <Button type='primary' className='rounded-[33.98px] border border-[1.02px] border-solid border-[rgba(10,9,9,0.45)] 
+            bg-gradient-to-b from-[rgba(62,64,69,0.5)] via-[rgba(62,64,69,0)] to-[rgba(62,64,69,0)] 
+            bg-[radial-gradient(170.95%_118.01%_at_8.39%_32.81%,_rgba(67,64,70,0.5)_0%,_rgba(41,37,45,0.5)_28.24%,_rgba(10,10,11,0.5)_100%)] 
+            text-[#FE638E] text-center 
+            shadow-[0_0_11.643px_#FE3C72,0_0_11.643px_#FE3C72] 
+            font-[Calistoga] text-[15.82px] font-normal leading-[1.6] 
+            text-shadow-[0_0_11.643px_#FE3C72,0_0_11.643px_#FE3C72]' >
               Pay $0
             </Button>
           </div>
