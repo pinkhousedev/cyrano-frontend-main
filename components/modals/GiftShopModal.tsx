@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronDown, ChevronRight, Info, Mail, Phone, Minus, Plus, Search } from 'lucide-react';
+import { X, ChevronDown, ChevronRight, Info, Minus, Plus, Search } from 'lucide-react';
 import { Button } from '../ui/Buttons';
 import Image from 'next/image';
 import { getImageUrl } from '@/lib/utils';

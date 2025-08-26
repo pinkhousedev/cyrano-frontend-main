@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/Buttons';
 import { useState, useEffect } from 'react';
 import { getApiUrl } from '@/lib/utils';

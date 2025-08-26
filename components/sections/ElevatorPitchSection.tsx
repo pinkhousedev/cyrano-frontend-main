@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { getApiUrl, getImageUrl } from '@/lib/utils';
+import { getApiUrl } from '@/lib/utils';
 
 interface Article {
   title: string;
