@@ -23,6 +23,25 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
   const [selectedCountry, setSelectedCountry] = useState<CountryCode>({ name: 'Pakistan', code: '92', flag: '🇵🇰' });
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedContact, setSelectedContact] = useState<'phone' | 'email'>('phone');
+  const [locationInput, setLocationInput] = useState('WESTMINSTER');
+  const [currentMapLocation, setCurrentMapLocation] = useState('Westminster,London,UK');
+
+  // Handle location change and update map
+  const handleLocationChange = (newLocation: string) => {
+    setLocationInput(newLocation);
+    // Update map location when Enter is pressed or input loses focus
+    if (newLocation.trim()) {
+      const formattedLocation = newLocation.trim().replace(/\s+/g, ',');
+      setCurrentMapLocation(formattedLocation);
+    }
+  };
+
+  // Handle Enter key press
+  const handleLocationKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleLocationChange(locationInput);
+    }
+  };
 
   // Array of country codes with names and flags
   const countryCodes: CountryCode[] = [
@@ -339,7 +358,10 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                 <div className="flex items-center gap-2 flex-1">
                   <input
                     type="text"
-                    className="bg-gray-700 text-white placeholder-gray-400 p-[8px_12px] rounded-lg outline-none border border-gray-600 w-full"
+                    value={locationInput}
+                    placeholder="Type location and press Enter..."
+                    className="w-full rounded-[41.516px] border-[2px] border-[#fd3971] bg-gradient-to-br from-[#27242C] via-[#27242C] to-[#0C0B0E] px-1 py-1 outline-none focus:ring-0 focus:border-pink-400"
+                    
                   />
                   <Info className="w-5 h-5 text-white" />
                 </div>
@@ -375,16 +397,31 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
               {/* Map and Location */}
               <div className="mb-6 display flex-col gap-4 flex sm:flex-row">
                 <div className="text-center flex-1">
-                  <Image src={getImageUrl("/uploads/Rectangle_3199_7af7e3fcec.png")} alt="" width={300} height={300} />
-                  <label className='text-white text-sm text-center flex justify-center alitem-center gap-3' style={{
-                    fontSize: "10px", background: "#413F47",
+                  {/* Google Maps Search */}
+                  <div className="w-full h-64 rounded-lg overflow-hidden border-2 border-gray-600">
+                    <iframe
+                      src={`https://maps.google.com/maps?q=${encodeURIComponent(currentMapLocation)}&output=embed&z=10`}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title={`Map of ${currentMapLocation}`}
+                      key={currentMapLocation} // Force re-render when location changes
+                    ></iframe>
+                  </div>
+                  
+                  <label className='text-white text-sm text-center flex justify-center items-center gap-3 mt-2' style={{
+                    fontSize: "10px", 
+                    background: "#413F47",
                     padding: "5px 10px",
                     justifyContent: "center",
                     alignItems: "center",
                     borderRadius: "10px",
                     gap: '21px',
-                    margin: "0, 10px",
-                  }}>WESTMINISTER</label>
+                    margin: "0 10px",
+                  }}>WESTMINSTER</label>
                 </div>
 
 
@@ -393,7 +430,10 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                   <input
                     type="text"
                     placeholder="Lorem ipsum Altus Maximus Voya "
-                    className="w-full rounded-[41.516px] border-[2px] border-[#fd3971] bg-gradient-to-br from-[#27242C] via-[#27242C] to-[#0C0B0E] px-1 py-1 outline-none focus:ring-0 focus:border-pink-400"
+                    className="w-full text-white px-1 py-1 rounded-[41.516px] border-[2px] border-[#fd3971] bg-gradient-to-br from-[#27242C] via-[#27242C] to-[#0C0B0E] px-1 py-1 outline-none focus:ring-0 focus:border-pink-400"
+                    onChange={(e) => setLocationInput(e.target.value)}
+                    onKeyPress={handleLocationKeyPress}
+                    onBlur={() => handleLocationChange(locationInput)} 
                   />
                   <label className="block font-sm text-[4px] text-[#FE3C72] ml-4 mt-[2px]">Lorem Ipsum Altus Maximus Vaya Yor Lasim Joruai Ei Baraum </label>
                   <div className="mt-4">
