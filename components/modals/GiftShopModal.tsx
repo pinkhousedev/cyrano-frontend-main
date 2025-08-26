@@ -126,7 +126,7 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
   };
 
   // Close dropdown when clicking outside
-  const handleClickOutside = (e: React.MouseEvent) => {
+  const handleClickOutside = () => {
     if (isCountryDropdownOpen) {
       setIsCountryDropdownOpen(false);
       setSearchQuery('');
@@ -158,7 +158,9 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
           exit={{ scale: 0.9, opacity: 0, y: 20 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="relative bg-[#1a1a1a] rounded-2xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-700 shadow-2xl"
-          onClick={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
         >
           {/* Header */}
           <div className="text-center mb-[40px]">
@@ -278,7 +280,9 @@ const GiftShopModal: React.FC<GiftShopModalProps> = ({ isOpen, onClose }) => {
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-0 w-96 border border-gray-500 rounded-b-lg shadow-2xl z-10 max-h-96 overflow-hidden border-t-0"
                         style={{ marginTop: '-1px' }}
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                        }}
                       >
                         {/* Search Field */}
                         <div className="p-4 border-b border-gray-600 bg-gray-700">
