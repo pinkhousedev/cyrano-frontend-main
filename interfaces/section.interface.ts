@@ -172,6 +172,68 @@ interface AndroidHeroSection {
   backgroundGradient?: 'purple' | 'blue' | 'green';
 }
 
+// About Us specific sections
+interface AboutUsHeroSection {
+  __component: "sections.about-us-hero";
+  id: number;
+  title?: string;
+  subtitle?: string;
+}
+
+interface AboutUsContentSection {
+  __component: "sections.about-us-content";
+  id: number;
+  title?: string;
+  content?: string;
+  image?: StrapiImage | null;
+}
+
+interface TeamMember {
+  id: number;
+  name: string;
+  position: string;
+  bio?: string;
+  avatar?: StrapiImage | null;
+}
+
+interface AboutUsTeamSection {
+  __component: "sections.about-us-team";
+  id: number;
+  title?: string;
+  teamMembers?: TeamMember[];
+}
+
+interface FlipCard {
+  id: number;
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+interface FlipSection {
+  __component: "sections.flip-section";
+  id: number;
+  title?: string;
+  cards?: FlipCard[];
+}
+
+// Text Image Section for About Us
+interface SectionsTextImageSection {
+  __component: "sections.sections-text-image";
+  id: number;
+  title: string;
+  subtitle: string;
+  richText?: unknown;
+  features?: FeatureItem[];
+  button?: {
+    id: string;
+    buttonText: string;
+    buttonLink: string;
+  }[];
+  image: StrapiImage | null;
+  reversed?: boolean;
+}
+
 export interface CareerVisionSection {
   __component: "sections.career-vision";
   id: number;
@@ -227,4 +289,9 @@ export type Section =
   | CareerHighlightsSection
   | CareerJobListingsSection
   | FeatureSpotlight
-  | AndroidHeroSection;
+  | AndroidHeroSection
+  | AboutUsHeroSection
+  | AboutUsContentSection
+  | AboutUsTeamSection
+  | FlipSection
+  | SectionsTextImageSection;

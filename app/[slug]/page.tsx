@@ -10,6 +10,7 @@ import UserType1Layout from "@/components/layouts/UserType1Layout";
 import CareerLayout from "@/components/layouts/CareerLayout";
 import UserType2Layout from "@/components/layouts/UserType2Layout";
 import AndroidAppLayout from "@/components/layouts/AndroidAppLayout";
+import AboutUsLayout from "../../components/layouts/AboutUsLayout";
 
 export async function generateMetadata({
   params,
@@ -45,6 +46,7 @@ export default async function Page({
       {pageType === "userType2" && <UserType2Layout/>}
       {pageType === "career" && <CareerLayout page={page} />}
       {pageType === "androidApp" && <AndroidAppLayout page={page} />}
+      {(pageType === "aboutUs" || pageType === "aboutus") && <AboutUsLayout page={page} />}
     </div>
   );
 }

@@ -8,7 +8,7 @@ export interface PageData {
   description?: string;
   metaTitle?: string;
   metaDescription?: string;
-  pageType: "home" | "userType1" | "userType2" | "career" | "androidApp";
+  pageType: "home" | "userType1" | "userType2" | "career" | "androidApp" | "aboutUs" | "aboutus";
   locale: string;
   sections: Section[];
   createdAt: string;
