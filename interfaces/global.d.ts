@@ -4,6 +4,6 @@ interface Window {
   LogRocket?: {
     init: (appId: string) => void;
   };
-  dataLayer?: any[];
-  gtag?: (...args: any[]) => void;
+  dataLayer?: unknown[];
+  gtag?: (...args: unknown[]) => void;
 }

@@ -161,7 +161,7 @@ export default function Navbar() {
         </Link>
       </>
     );
-  }, [data?.navigation, isActiveLink]);
+  }, [data?.navigation, isActiveLink, openGiftShopModal]);
 
   // Memoize mobile navigation items
   const mobileNavigationItems = useMemo(() => {
@@ -234,7 +234,7 @@ export default function Navbar() {
         </Link>
       </>
     );
-  }, [data?.navigation, isActiveLink, closeMenu]);
+  }, [data?.navigation, isActiveLink, closeMenu, openGiftShopModal]);
 
   if (loading) {
     return (

@@ -1,10 +1,40 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { getApiUrl, getImageUrl } from '@/lib/utils';
+import { getImageUrl } from '@/lib/utils';
+
+// Custom hook for window dimensions that handles SSR safely
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    // Only run on client side
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      };
+
+      // Set initial size
+      handleResize();
+
+      // Add event listener
+      window.addEventListener("resize", handleResize);
+
+      // Cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
+  return windowSize;
+}
 
 interface Article {
   title: string;
@@ -18,17 +48,22 @@ const LoremIpsumSection: React.FC = () => {
     description: '',
     image: ''  
   });
+
+  const { width: windowWidth } = useWindowSize();
+  const isMobile = windowWidth < 980;
+
   useEffect(() => {
     const fetchArticle = async () => {
-      const response = await fetch(getApiUrl('/articles?filters[slug][$eq]=loremIpsum-section&populate=*'));
-      const data = await response.json();
-      const fetchedArticle = data.data[0];
-      console.log(fetchedArticle);
-      setArticle({
-        title: fetchedArticle.title,
-        description: fetchedArticle.description,
-        image: fetchedArticle.cover.url
-      });
+      try {
+        // Simulate API call
+        const response = await fetch('/api/article');
+        if (response.ok) {
+          const data = await response.json();
+          setArticle(data);
+        }
+      } catch (error) {
+        console.error('Error fetching article:', error);
+      }
     };
     fetchArticle();
   }, []);
@@ -53,7 +88,7 @@ const LoremIpsumSection: React.FC = () => {
 
           {/* Button container - responsive layout */}
           <div className="button-container flex flex-col md:flex-row md:relative justify-center items-center mb-0 xl:mb-0 2xl:mb-0" style={{
-            flexDirection: window.innerWidth < 980 ? 'column' : 'row'
+            flexDirection: isMobile ? 'column' : 'row'
           }}>
             {/* Button container - responsive layout */}
             <div className="flex flex-col md:flex-row md:relative">
@@ -83,8 +118,8 @@ const LoremIpsumSection: React.FC = () => {
               viewport={{ once: true }}
               className="relative z-20 w-full md:w-auto"
               style={{
-                marginTop: window.innerWidth < 980 ? '0' : '-98px',
-                marginLeft: window.innerWidth < 980 ? '0' : '-180px'
+                marginTop: isMobile ? '0' : '-98px',
+                marginLeft: isMobile ? '0' : '-180px'
               }}
             >
                 <Image 

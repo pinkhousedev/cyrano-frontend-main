@@ -2,20 +2,84 @@
 import type { PageData } from "@/interfaces/page.interface";
 import type { Section } from "@/interfaces/section.interface";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import SubNav from "../Shared/SubNav";
 
 interface AboutUsLayoutProps {
   page: PageData;
 }
 
+// Proper interfaces for the specific section types
+interface TextImageSection {
+  id: number;
+  title: string;
+  subtitle: string;
+  richText?: Array<{
+    type: string;
+    children?: Array<{ text: string }>;
+  }>;
+  image?: {
+    url: string;
+    alternativeText?: string;
+  } | null;
+  reversed?: boolean;
+}
+
+interface AboutUsHeroSection {
+  id: number;
+  title?: string;
+  subtitle?: string;
+}
+
+interface AboutUsContentSection {
+  id: number;
+  title?: string;
+  content?: string;
+  image?: {
+    url: string;
+    alternativeText?: string;
+  } | null;
+}
+
+interface TeamMember {
+  id: number;
+  name: string;
+  position: string;
+  bio?: string;
+  avatar?: {
+    url: string;
+    alternativeText?: string;
+  } | null;
+}
+
+interface AboutUsTeamSection {
+  id: number;
+  title?: string;
+  teamMembers?: TeamMember[];
+}
+
+interface FlipCard {
+  id: number;
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+interface FlipSection {
+  id: number;
+  title?: string;
+  cards?: FlipCard[];
+}
+
 export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
   console.log("page", page)
   // Handle both 'sections' and 'Blocks' arrays from Strapi
-  const sections = (page as any).sections || (page as any).Blocks || [];
+  const sections = (page as { sections?: Section[]; Blocks?: Section[] }).sections || (page as { sections?: Section[]; Blocks?: Section[] }).Blocks || [];
 
-  const renderSection = (section: any) => {
+  const renderSection = (section: Section) => {
     switch (section.__component) {
       case "sections.sections-text-image":
+        const textImageSection = section as TextImageSection;
         return (
           <motion.div
             key={section.id}
@@ -25,16 +89,16 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
             className="mb-16"
           >
             <div className="grid md:grid-cols-2 gap-12 items-center py-10">
-              <div className={section.reversed ? "md:order-2" : ""}>
+              <div className={textImageSection.reversed ? "md:order-2" : ""}>
                 <h2 className="text-3xl font-bold text-white mb-6">
-                  {section.title || "About Us"}
+                  {textImageSection.title || "About Us"}
                 </h2>
                 <p className="text-xl text-gray-300 mb-6">
-                  {section.subtitle || "Discover our story and mission"}
+                  {textImageSection.subtitle || "Discover our story and mission"}
                 </p>
-                {section.richText && (
+                {textImageSection.richText && (
                   <div className="text-gray-300 leading-relaxed">
-                    {Array.isArray(section.richText) && section.richText.map((block: any, index: number) => (
+                    {Array.isArray(textImageSection.richText) && textImageSection.richText.map((block, index: number) => (
                       <div key={index} className="mb-4">
                         {block.type === "paragraph" && (
                           <p>{block.children?.[0]?.text || ""}</p>
@@ -44,11 +108,13 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
                   </div>
                 )}
               </div>
-              {section.image && (
-                <div className={section.reversed ? "md:order-1" : ""}>
-                  <img
-                    src={section.image.url}
-                    alt={section.image.alternativeText || "About Us"}
+              {textImageSection.image && (
+                <div className={textImageSection.reversed ? "md:order-1" : ""}>
+                  <Image
+                    src={textImageSection.image.url}
+                    alt={textImageSection.image.alternativeText || "About Us"}
+                    width={600}
+                    height={400}
                     className="rounded-lg shadow-2xl w-full"
                   />
                 </div>
@@ -58,6 +124,7 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
         );
 
       case "sections.about-us-hero":
+        const heroSection = section as AboutUsHeroSection;
         return (
           <motion.div
             key={section.id}
@@ -67,15 +134,16 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
             className="text-center mb-16"
           >
             <h1 className="text-5xl font-bold text-white mb-6">
-              {section.title || "About Us"}
+              {heroSection.title || "About Us"}
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              {section.subtitle || "Discover our story and mission"}
+              {heroSection.subtitle || "Discover our story and mission"}
             </p>
           </motion.div>
         );
 
       case "sections.about-us-content":
+        const contentSection = section as AboutUsContentSection;
         return (
           <motion.div
             key={section.id}
@@ -87,20 +155,22 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-white mb-6">
-                  {section.title || "Our Mission"}
+                  {contentSection.title || "Our Mission"}
                 </h2>
                 <div 
                   className="text-gray-300 leading-relaxed"
                   dangerouslySetInnerHTML={{ 
-                    __html: section.content || "We are dedicated to innovation and excellence." 
+                    __html: contentSection.content || "We are dedicated to innovation and excellence." 
                   }}
                 />
               </div>
-              {section.image && (
+              {contentSection.image && (
                 <div className="relative">
-                  <img
-                    src={section.image.url}
-                    alt={section.image.alternativeText || "About Us"}
+                  <Image
+                    src={contentSection.image.url}
+                    alt={contentSection.image.alternativeText || "About Us"}
+                    width={600}
+                    height={400}
                     className="rounded-lg shadow-2xl"
                   />
                 </div>
@@ -110,6 +180,7 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
         );
 
       case "sections.about-us-team":
+        const teamSection = section as AboutUsTeamSection;
         return (
           <motion.div
             key={section.id}
@@ -119,10 +190,10 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
             className="mb-16"
           >
             <h2 className="text-3xl font-bold text-white text-center mb-12">
-              {section.title || "Our Team"}
+              {teamSection.title || "Our Team"}
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              {section.teamMembers?.map((member: any, index: number) => (
+              {teamSection.teamMembers?.map((member, index: number) => (
                 <motion.div
                   key={member.id || index}
                   initial={{ opacity: 0, y: 20 }}
@@ -131,9 +202,11 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
                   className="text-center"
                 >
                   {member.avatar && (
-                    <img
+                    <Image
                       src={member.avatar.url}
                       alt={member.avatar.alternativeText || member.name}
+                      width={128}
+                      height={128}
                       className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                     />
                   )}
@@ -149,6 +222,7 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
         );
 
       case "sections.flip-section":
+        const flipSection = section as FlipSection;
         return (
           <motion.div
             key={section.id}
@@ -158,10 +232,10 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
             className="mb-16"
           >
             <h2 className="text-3xl font-bold text-white text-center mb-12">
-              {section.title || "Why Choose Us"}
+              {flipSection.title || "Why Choose Us"}
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {section.cards?.map((card: any, index: number) => (
+              {flipSection.cards?.map((card, index: number) => (
                 <motion.div
                   key={card.id || index}
                   initial={{ opacity: 0, y: 20 }}
@@ -210,7 +284,7 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 py-16">
           {sections && sections.length > 0 ? (
-            sections.map((section: any) => renderSection(section))
+            sections.map((section: Section) => renderSection(section))
           ) : (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -238,10 +312,10 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
                   Sections Count: {sections?.length || 0}
                 </p>
                 <p className="text-gray-300 mb-4">
-                  Has Blocks: {(page as any).Blocks ? "Yes" : "No"}
+                  Has Blocks: {(page as { Blocks?: Section[] }).Blocks ? "Yes" : "No"}
                 </p>
                 <p className="text-gray-300 mb-4">
-                  Has Sections: {(page as any).sections ? "Yes" : "No"}
+                  Has Sections: {(page as { sections?: Section[] }).sections ? "Yes" : "No"}
                 </p>
                 <pre className="text-gray-300 text-sm overflow-auto bg-black/20 p-4 rounded">
                   {JSON.stringify(page, null, 2)}
