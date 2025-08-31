@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: process.env.NEXT_PUBLIC_STRAPI_API_URL?.replace('https://', '').replace('http://', '') || 'cyrano-pamphlet-backend-s8as.onrender.com',
+        hostname: 'cyrano-pamphlet-backend-s8as.onrender.com',
         pathname: '/**',
       },
       {

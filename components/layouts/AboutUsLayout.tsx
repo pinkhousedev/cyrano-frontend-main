@@ -9,6 +9,64 @@ interface AboutUsLayoutProps {
   page: PageData;
 }
 
+// Array of local images to display sequentially
+const localImages = [
+  "/assets/0_0 26.png",
+  "/assets/0_0 24.png", 
+  "/assets/0_0 10.png",
+  "/assets/0_1 17.png",
+  "/assets/image 281.png",
+  "/assets/image 284.png",
+  "/assets/image 424.png",
+  "/assets/image 430.png",
+  "/assets/image 407.png",
+  "/assets/image 380.png",
+  "/assets/image 352.png",
+  "/assets/image 292.png",
+  "/assets/image 279.png",
+  "/assets/0_3 17.png",
+  "/assets/0_2 8.png",
+  "/assets/0_1 9.png",
+  "/assets/0_0 9.png"
+];
+
+// Function to get FIXED image in sequential order
+const getFixedImage = (imageIndex: number): string => {
+  // Always return the same image for the same index
+  return localImages[imageIndex];
+};
+
+// Function to get image sequentially based on block count
+const getSequentialImage = (blockIndex: number): string => {
+  const imageIndex = blockIndex % localImages.length;
+  return localImages[imageIndex];
+};
+
+// Function to get alt text for images
+const getImageAlt = (blockIndex: number): string => {
+  const altTexts = [
+    "Black cat with glowing blue eyes against a pink moon backdrop",
+    "Two stylized cats with thought bubble and heart",
+    "Three cats in a magical forest setting",
+    "Cats in a dreamy atmosphere with glowing elements",
+    "Three stylized cats with glowing pink elements",
+    "Cats with magical atmosphere and glowing effects",
+    "Large illustration of three stylized cats in magical environment",
+    "Cats in a vibrant magical setting",
+    "Cats surrounded by magical elements",
+    "Cats in a mystical glowing environment",
+    "Cats with ethereal magical effects",
+    "Cats in a dreamy magical forest",
+    "Cats with mystical glowing atmosphere",
+    "Cats in a magical glowing world",
+    "Cats with ethereal magical elements",
+    "Cats in a mystical environment",
+    "Cats with magical glowing effects"
+  ];
+  const altIndex = blockIndex % altTexts.length;
+  return altTexts[altIndex];
+};
+
 // Proper interfaces for the specific section types
 interface TextImageSection {
   id: number;
@@ -108,17 +166,16 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
                   </div>
                 )}
               </div>
-              {textImageSection.image && (
-                <div className={textImageSection.reversed ? "md:order-1" : ""}>
-                  <Image
-                    src={textImageSection.image.url}
-                    alt={textImageSection.image.alternativeText || "About Us"}
+              {/* Always show image using sequential system */}
+              <div className={textImageSection.reversed ? "md:order-1" : ""}>
+                                  <Image
+                    src={getFixedImage(sections.indexOf(section))}
+                    alt={getImageAlt(sections.indexOf(section))}
                     width={600}
                     height={400}
                     className="rounded-lg shadow-2xl w-full"
                   />
-                </div>
-              )}
+              </div>
             </div>
           </motion.div>
         );
@@ -164,17 +221,16 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
                   }}
                 />
               </div>
-              {contentSection.image && (
-                <div className="relative">
-                  <Image
-                    src={contentSection.image.url}
-                    alt={contentSection.image.alternativeText || "About Us"}
-                    width={600}
-                    height={400}
-                    className="rounded-lg shadow-2xl"
-                  />
-                </div>
-              )}
+              {/* Always show image using sequential system */}
+              <div className="relative">
+                <Image
+                  src={getFixedImage(sections.indexOf(section))}
+                  alt={getImageAlt(sections.indexOf(section))}
+                  width={600}
+                  height={400}
+                  className="rounded-lg shadow-2xl"
+                />
+              </div>
             </div>
           </motion.div>
         );
@@ -283,6 +339,8 @@ export default function AboutUsLayout({ page }: AboutUsLayoutProps) {
       <SubNav />
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
         <div className="max-w-7xl mx-auto px-4 py-16">
+          
+          
           {sections && sections.length > 0 ? (
             sections.map((section: Section) => renderSection(section))
           ) : (
