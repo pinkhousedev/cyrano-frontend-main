@@ -36,12 +36,6 @@ const getFixedImage = (imageIndex: number): string => {
   return localImages[imageIndex];
 };
 
-// Function to get image sequentially based on block count
-const getSequentialImage = (blockIndex: number): string => {
-  const imageIndex = blockIndex % localImages.length;
-  return localImages[imageIndex];
-};
-
 // Function to get alt text for images
 const getImageAlt = (blockIndex: number): string => {
   const altTexts = [

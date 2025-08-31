@@ -8,6 +8,7 @@ import CatIllustrationSection from '@/components/sections/CatIllustrationSection
 import ElevatorPitchSection from '@/components/sections/ElevatorPitchSection';
 import FooterImage from '@/components/sections/FooterImage';
 import type { PageData } from "@/interfaces/page.interface";
+import type { Section } from "@/interfaces/section.interface";
 
 interface HomeLayoutProps {
   page: PageData;
@@ -82,8 +83,8 @@ export default function HomeLayout({ page }: HomeLayoutProps) {
   }
 
   // Get sections from page data
-  const sections = (page as { sections?: any[]; Blocks?: any[] }).sections || 
-                  (page as { sections?: any[]; Blocks?: any[] }).Blocks || [];
+  const sections = (page as { sections?: Section[]; Blocks?: Section[] }).sections || 
+                  (page as { sections?: Section[]; Blocks?: Section[] }).Blocks || [];
 
   // Create dynamic image objects based on section count
   const createDynamicImages = () => {
